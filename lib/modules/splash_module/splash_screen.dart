@@ -9,7 +9,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SplashScreenView(
-        navigateRoute: const LoginScreen(),
+        navigateRoute: LoginScreen(),
         duration: 2000,
         imageSize: 130,
         imageSrc: "assets/images/logo.png",

@@ -7,7 +7,7 @@ class DioHelper {
   static init() {
     dio = Dio(
       BaseOptions(
-        baseUrl: 'https://student.valuxapps.com/api/',
+        baseUrl: 'https://magdsoft-internship.herokuapp.com/api/',
         receiveDataWhenStatusError: true,
       ),
     );
@@ -20,9 +20,9 @@ class DioHelper {
     String? token,
   }) async {
     dio.options.headers = {
-      'lang': 'ar',
-      'Content-Type': 'application/json',
-      'Authorization': '$token',
+      // 'lang': 'ar',
+      // 'Content-Type': 'application/json',
+      // 'Authorization': '$token',
 
     };
     return await dio.get(
@@ -39,9 +39,9 @@ class DioHelper {
     String? token,
   }) async {
     dio.options.headers = {
-      'lang': 'ar',
-      'Content-Type': 'application/json',
-      'Authorization': '$token',
+      // 'lang': 'ar',
+      // 'Content-Type': 'application/json',
+      // 'Authorization': '$token',
     };
 
     return await dio.post(
@@ -59,9 +59,9 @@ class DioHelper {
     String? token,
   }) async {
     dio.options.headers = {
-      'lang': 'ar',
-      'Content-Type': 'application/json',
-      'Authorization': '$token',
+      // 'lang': 'ar',
+      // 'Content-Type': 'application/json',
+      // 'Authorization': '$token',
     };
     return await dio.put(
       url,
