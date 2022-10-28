@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class MyButton extends StatelessWidget {
-   MyButton({Key? key , required this.text , required this.function }) : super(key: key);
+   MyButton({Key? key , required this.text , required this.function  ,required this.width}) : super(key: key);
   final String  text ;
  final Function function ;
+ final double width ;
   @override
   Widget build(BuildContext context) {
     return  GestureDetector(
@@ -22,7 +23,7 @@ class MyButton extends StatelessWidget {
             ],
           ),
         ),
-        width: 282,
+        width:width/1.5,
         height: 50,
         child:  Center(
           child: Text(

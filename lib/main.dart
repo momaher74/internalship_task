@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:internalship_task/component/constant/constant.dart';
 import 'package:internalship_task/helpers/local_helper/shared_pref.dart';
 import 'package:internalship_task/helpers/networks/dio_helper.dart';
-import 'package:internalship_task/modules/help_module/help_screen.dart';
 import 'package:internalship_task/modules/home_module/homescreen.dart';
-import 'package:internalship_task/modules/otp_module/otp_screen.dart';
-import 'package:internalship_task/modules/splash_module/splash_screen.dart';
-
+import 'package:internalship_task/modules/login_module/login_screen.dart';
 import 'component/shared_component/observar.dart';
 import 'modules/help_module/cubit/help_cubit.dart';
 
@@ -14,7 +12,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   DioHelper.init();
   await CacheHelper.init();
-
+  logged = await CacheHelper.getData(key: 'logged') ?? false;
+  print(logged);
   Bloc.observer = AppBlocObserver();
   runApp(const MyApp());
 }
@@ -36,7 +35,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const HelpScreen(),
+        home: logged == true ? const HomeScreen() : LoginScreen(),
       ),
     );
   }

@@ -20,6 +20,8 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    var width = MediaQuery.of(context).size.width;
+
     return BlocProvider(
       create: (BuildContext context) => LoginCubit(),
       child: BlocConsumer<LoginCubit, LoginState>(
@@ -66,7 +68,7 @@ class LoginScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-                          )
+                          ) ,
                         ],
                       ),
                     ),
@@ -200,6 +202,7 @@ class LoginScreen extends StatelessWidget {
                               condition: state is! LoginLoadingState,
                               builder: (context) {
                                 return MyButton(
+                                  width: width,
                                   text: 'Login',
                                   function: () {
                                     if(formKey.currentState!.validate()){

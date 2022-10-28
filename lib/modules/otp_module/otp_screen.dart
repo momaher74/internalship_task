@@ -14,6 +14,8 @@ class OTPScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+
     return BlocProvider<OtpCubit>(
       create: (context) => OtpCubit(),
       child: BlocConsumer<OtpCubit, OtpState>(
@@ -21,13 +23,15 @@ class OTPScreen extends StatelessWidget {
           var cubit = OtpCubit.get(context);
           return Scaffold(
             body: SafeArea(
-              child:Stack(
+              child: Stack(
                 children: [
                   const BackgroundWidget(),
                   SingleChildScrollView(
                     child: Column(
                       children: [
-                        const SizedBox(height: 50,) ,
+                        const SizedBox(
+                          height: 50,
+                        ),
                         const Text(
                           "Verify Phone",
                           style: TextStyle(
@@ -35,8 +39,10 @@ class OTPScreen extends StatelessWidget {
                             fontWeight: FontWeight.w400,
                             color: Colors.white,
                           ),
-                        ) ,
-                        const SizedBox(height: 120,) ,
+                        ),
+                        const SizedBox(
+                          height: 120,
+                        ),
                         OtpTextField(
                           autoFocus: true,
                           fieldWidth: 50,
@@ -47,9 +53,12 @@ class OTPScreen extends StatelessWidget {
                           cursorColor: Colors.blue,
                           showFieldAsBox: false,
                           onCodeChanged: (String code) {},
-                          onSubmit: (String verificationCode) {}, // end onSubmit
-                        ) ,
-                        const SizedBox(height: 140,) ,
+                          onSubmit:
+                              (String verificationCode) {}, // end onSubmit
+                        ),
+                        const SizedBox(
+                          height: 140,
+                        ),
                         TextButton(
                           onPressed: () {},
                           child: Text(
@@ -68,6 +77,7 @@ class OTPScreen extends StatelessWidget {
                           condition: state is! OtpLoadingState,
                           builder: (context) {
                             return MyButton(
+                              width: width,
                               text: 'Verify',
                               function: () {
                                 cubit.otpVerify();
@@ -77,6 +87,9 @@ class OTPScreen extends StatelessWidget {
                           fallback: (context) => const Center(
                             child: CircularProgressIndicator(),
                           ),
+                        ),
+                        const SizedBox(
+                          height: 60,
                         ),
                       ],
                     ),

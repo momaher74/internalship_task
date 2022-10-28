@@ -70,7 +70,9 @@ class HelpScreen extends StatelessWidget {
                           text: "Continue",
                           function: () {
                             pushReplacement(context, const HomeScreen());
+
                           },
+                          width: width,
                         ),
                       ],
                     ),

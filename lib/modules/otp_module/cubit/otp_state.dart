@@ -10,3 +10,7 @@ class OtpLoadingState extends OtpState {}
 class OtpSuccessState extends OtpState {}
 
 class OtpErrorState extends OtpState {}
+
+class CacheUserSuccessState extends OtpState {}
+
+class CacheUserErrorState extends OtpState {}

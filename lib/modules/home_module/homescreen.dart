@@ -196,6 +196,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             bottomNavigationBar: CurvedNavigationBar(
+              index: 2,
               backgroundColor: Colors.blueAccent,
               items: <Widget>[
                 Icon(
