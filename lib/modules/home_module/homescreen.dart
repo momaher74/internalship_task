@@ -22,13 +22,14 @@ class HomeScreen extends StatelessWidget {
             body: SafeArea(
               child: Stack(
                 children: [
-                  BackgroundWidget() ,
+                  const BackgroundWidget() ,
                   ConditionalBuilder(
                     condition: cubit.productsModel != null,
                     fallback: (_) =>
                         const Center(child: CircularProgressIndicator()),
                     builder: (_) {
                       return SingleChildScrollView(
+                        physics: const BouncingScrollPhysics(),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [

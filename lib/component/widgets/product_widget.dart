@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:internalship_task/component/shared_component/navigation_function.dart';
+import 'package:internalship_task/modules/details_module/product_details_screen.dart';
 
 class ProductWidget extends StatelessWidget {
-  const ProductWidget({Key? key , required this.prod}) : super(key: key);
-  final prod ;
+  const ProductWidget({
+    Key? key,
+    required this.prod,
+  }) : super(key: key);
+  final prod;
 
   @override
   Widget build(BuildContext context) {
@@ -18,30 +23,40 @@ class ProductWidget extends StatelessWidget {
                 color: Colors.grey.withOpacity(.6),
                 spreadRadius: 3,
                 blurRadius: 2,
-                offset: const Offset(0,
-                    3), // changes position of shadow
+                offset: const Offset(0, 3), // changes position of shadow
               )
             ],
           ),
           child: Column(
-            crossAxisAlignment:
-            CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Card(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10),
-                  child: Image(
-                    image: NetworkImage(
-                      prod.image,
+                  child: GestureDetector(
+                    onTap: () {
+                      push(
+                        context,
+                        ProductDetailsScreen(
+                          prodName: prod.name,
+                          prodImg: prod.image,
+                          prodPrice: prod.price,
+                          prodType: prod.type,
+                        ),
+                      );
+                    },
+                    child: Image(
+                      image: NetworkImage(
+                        prod.image,
+                      ),
+                      height: 150,
+                      fit: BoxFit.cover,
                     ),
-                    height: 150,
-                    fit: BoxFit.cover,
                   ),
                 ),
                 elevation: 10,
                 shape: RoundedRectangleBorder(
-                  borderRadius:
-                  BorderRadius.circular(
+                  borderRadius: BorderRadius.circular(
                     15.0,
                   ),
                 ),
@@ -50,11 +65,9 @@ class ProductWidget extends StatelessWidget {
                 height: 30,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: Column(
-                  crossAxisAlignment:
-                  CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
                       child: Text(
@@ -62,9 +75,11 @@ class ProductWidget extends StatelessWidget {
                         style: const TextStyle(
                           color: Colors.blue,
                           fontSize: 18,
-                          fontWeight:
-                          FontWeight.w400,
+                          fontWeight: FontWeight.w400,
                         ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+
                       ),
                       width: 150,
                       height: 60,
@@ -75,14 +90,17 @@ class ProductWidget extends StatelessWidget {
                         style: const TextStyle(
                           color: Colors.black,
                           fontSize: 18,
-                          fontWeight:
-                          FontWeight.w400,
+                          fontWeight: FontWeight.w400,
                         ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                       ),
                       width: 200,
                       height: 22,
                     ),
-                    const SizedBox(height: 20,) ,
+                    const SizedBox(
+                      height: 20,
+                    ),
                   ],
                 ),
               ),

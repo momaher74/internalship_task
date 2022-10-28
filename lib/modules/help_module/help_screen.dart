@@ -1,7 +1,6 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:internalship_task/component/widgets/help_widget.dart';
 import 'package:internalship_task/component/shared_component/background.dart';
 import 'package:internalship_task/component/shared_component/shared_button.dart';
@@ -73,6 +72,9 @@ class HelpScreen extends StatelessWidget {
 
                           },
                           width: width,
+                        ),
+                        const SizedBox(
+                          height: 50,
                         ),
                       ],
                     ),
