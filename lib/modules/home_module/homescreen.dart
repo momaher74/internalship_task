@@ -160,7 +160,7 @@ class HomeScreen extends StatelessWidget {
                             const Padding(
                               padding: EdgeInsets.symmetric(horizontal: 20),
                               child: SizedBox(
-                                width: 220,
+                                width: 225,
                                 child: Text(
                                   'Recommended for You',
                                   style: TextStyle(

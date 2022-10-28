@@ -28,8 +28,12 @@ class ProductDetailsScreen extends StatelessWidget {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            const Color(0xff0062BD).withOpacity(.85),
-            const Color(0xff0062BD).withOpacity(.0),
+            const Color(0xff0062BD).withOpacity(
+              .85,
+            ),
+            const Color(0xff0062BD).withOpacity(
+              .0,
+            ),
           ],
         ),
       ),
